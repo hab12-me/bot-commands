@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Commands</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .commands {
+            list-style: none;
+            padding: 0;
+        }
+        .commands li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            font-family: monospace;
+            font-size: 15px;
+        }
+        .commands li:last-child {
+            border-bottom: none;
+        }
+        .admin {
+            margin-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            padding-top: 15px;
+        }
+        .admin h3 {
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Commands</h2>
+        <ul class="commands" id="userCommands"></ul>
+
+        <div class="admin">
+            <h3>Admin Commands</h3>
+            <ul class="commands" id="adminCommands"></ul>
+        </div>
+    </div>
+
+    <script>
+        // Define commands
+        const userCommands = [
+            "/start - Register",
+            "/open - Launch game",
+            "/rooms - Betting rooms",
+            "/play - Choose room",
+            "/balance - Check balance",
+            "/deposit - Add funds",
+            "/withdraw - Cash out",
+            "/instruction - Rules",
+            "/profile - Your stats",
+            "/help - This menu"
+        ];
+
+        const adminCommands = [
+            "/addbalance user_id amount",
+            "/reducebalance user_id amount",
+            "/pending - List pending deposits",
+            "/verify - Approve deposits",
+            "/players - Top players",
+            "/stats - Game statistics",
+            "/allusers - List all users"
+        ];
+
+        // Populate the lists
+        const userList = document.getElementById('userCommands');
+        userCommands.forEach(cmd => {
+            const li = document.createElement('li');
+            li.textContent = cmd;
+            userList.appendChild(li);
+        });
+
+        const adminList = document.getElementById('adminCommands');
+        adminCommands.forEach(cmd => {
+            const li = document.createElement('li');
+            li.textContent = cmd;
+            adminList.appendChild(li);
+        });
+    </script>
+</body>
+</html>
